@@ -41,47 +41,73 @@ const App = () => {
   const handlePrint = () => {
     const doc = new jsPDF();
 
+    doc.setFontSize(48);
+    doc.text('ABC', 160, 15);
+
     doc.setFontSize(18);
-    doc.text('INVOICE', 10, 10);
+    doc.text('INVOICE', 10, 25);
 
-    doc.setFontSize(14);
-    doc.text(`${getCurrentDateTime()}`, 155, 10);
+    doc.setFontSize(12);
+    doc.text(`${getCurrentDateTime()}`, 155, 25);
 
-    doc.line( 10, 15, 200, 15)
+    doc.line( 10, 30, 200, 30);
 
-    doc.text('Name: John Doe', 10, 25);
-    doc.text('Address: 123, Main St.', 10, 32);
-    doc.text('Phone: +1-212-456-7890', 10, 39);
+    doc.text('Name: John Doe', 10, 37);
+    doc.text('Address: 123, Main St.', 10, 44);
+    doc.text('Phone: +1-212-456-7890', 10, 51);
 
-    doc.line(10, 45, 200, 45);
+    doc.line(10, 55, 200, 55);
 
     doc.autoTable({
       head: [['Product', 'Quantity', 'Unit Price', 'Total Price']],
       body: products.map(product => [product.name, product.quantity, product.unitPrice, (product.quantity * product.unitPrice).toFixed(2)]),
-      startY: 50,
+      startY: 60,
+      styles: {
+        fillColor: [255, 255, 255],
+        textColor: [0, 0, 0],
+        lineColor: [0, 0, 0],
+      },
+      headStyles: {
+        fillColor: [255, 255, 255],
+        textColor: [0, 0, 0],
+        lineColor: [0, 0, 0],
+      },
+      alternateRowStyles: {
+        fillColor: [255, 255, 255],
+        lineWidth: 0.1,
+        lineColor: [0, 0, 0],
+      },
+      columnStyles: {
+        0: { lineWidth: { top: 0.1, right: 0, bottom: 0.1, left: 0 } },
+        1: { lineWidth: { top: 0.1, right: 0, bottom: 0.1, left: 0 } },
+        2: { lineWidth: { top: 0.1, right: 0, bottom: 0.1, left: 0 } },
+        3: { lineWidth: { top: 0.1, right: 0, bottom: 0.1, left: 0 } },
+      }
     });
 
-    const finalY = doc.autoTable.previous.finalY || 40;
+    const finalY = doc.autoTable.previous.finalY || 60;
 
-    doc.line(10, finalY + 5, 200, finalY + 5);
-
-    doc.text(`Total`, 10, finalY + 12);
+    doc.text(`Subtotal`, 140, finalY + 12);
     doc.text(`$${totals.subtotal}`, 195, finalY + 12, {align: 'right'});
 
-    doc.text(`Discount`, 10, finalY + 19);
+    doc.text(`Discount`, 140, finalY + 19);
     doc.text(`$${totals.discount}`, 195, finalY + 19, {align: 'right'});
 
-    doc.text(`Tax`, 10, finalY + 26);
+    doc.text(`Tax`, 140, finalY + 26);
     doc.text(`$${totals.tax}`, 195, finalY + 26, {align: 'right'});
 
-    doc.text(`Shipping`, 10, finalY + 33);
+    doc.text(`Shipping`, 140, finalY + 33);
     doc.text(`$${totals.shipping}`, 195, finalY + 33, {align: 'right'});
 
-    doc.text(`SubTotal`, 10, finalY + 45);
+    doc.line(130, finalY + 38, 200, finalY + 38);
+    
+    doc.setFont('helvetica', 'bold');
+    doc.text(`Total`, 140, finalY + 45);
     doc.text(`$${totals.total}`, 195, finalY + 45, {align: 'right'});
 
-    doc.line(10, finalY + 50, 200, finalY + 50);
-    doc.text(`** Thank you for your purchase! **`, 67, finalY + 60);
+    doc.line(130, finalY + 50, 200, finalY + 50);
+    doc.line(130, finalY + 51, 200, finalY + 51);
+    doc.text(`** Thank you for your purchase! **`, 67, finalY + 75);
     doc.save('receipt.pdf');
   };
 

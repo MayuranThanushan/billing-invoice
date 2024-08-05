@@ -32,12 +32,12 @@ const ReceiptPreview = ({ products, totals, deleteProduct, handlePrint}) => {
       <div className='summary'>
         <h3>Summary</h3>
         <div className='summary-item'>
-        <p>Total <span className='value'>${totals.subtotal}</span></p>
+        <p>Subtotal <span className='value'>${totals.subtotal}</span></p>
         <p>Discount <span className='value'>${totals.discount}</span></p>
         <p>Tax <span className='value'>${totals.tax}</span></p>
         <p>Shipping <span className='value'>${totals.shipping}</span></p>
         <hr />
-        <p className='total'>SubTotal <span className='value'>${totals.total}</span></p>
+        <p className='total'>Total <span className='value'>${totals.total}</span></p>
         </div>
         <div className='btn'><button onClick={handlePrint}>Print</button></div>
       </div>
