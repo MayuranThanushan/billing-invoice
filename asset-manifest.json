@@ -1,0 +1,21 @@
+{
+  "files": {
+    "main.css": "/billing-invoice/static/css/main.9ca1768d.css",
+    "main.js": "/billing-invoice/static/js/main.0322af63.js",
+    "static/js/239.648522a4.chunk.js": "/billing-invoice/static/js/239.648522a4.chunk.js",
+    "static/js/213.bf441e0e.chunk.js": "/billing-invoice/static/js/213.bf441e0e.chunk.js",
+    "static/js/732.cf5b54d7.chunk.js": "/billing-invoice/static/js/732.cf5b54d7.chunk.js",
+    "static/js/453.ed421a54.chunk.js": "/billing-invoice/static/js/453.ed421a54.chunk.js",
+    "index.html": "/billing-invoice/index.html",
+    "main.9ca1768d.css.map": "/billing-invoice/static/css/main.9ca1768d.css.map",
+    "main.0322af63.js.map": "/billing-invoice/static/js/main.0322af63.js.map",
+    "239.648522a4.chunk.js.map": "/billing-invoice/static/js/239.648522a4.chunk.js.map",
+    "213.bf441e0e.chunk.js.map": "/billing-invoice/static/js/213.bf441e0e.chunk.js.map",
+    "732.cf5b54d7.chunk.js.map": "/billing-invoice/static/js/732.cf5b54d7.chunk.js.map",
+    "453.ed421a54.chunk.js.map": "/billing-invoice/static/js/453.ed421a54.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.9ca1768d.css",
+    "static/js/main.0322af63.js"
+  ]
+}
